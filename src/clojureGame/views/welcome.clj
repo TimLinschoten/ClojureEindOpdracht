@@ -4,16 +4,27 @@
             [noir.content.getting-started])
   (:use noir.core))
 
-(defpartial testEen []
-  [:div 
-   [:p "Test 1"]])
+(defpartial createField[name value type]
+  [:td [:input {:name name
+            :value value
+            :type type}]])
 
-(defpartial testTwee []
-  [:div 
-   [:p (logica/sum 1 2)]])
+(defpartial showScreen [board]
+  (createField "1" "1" "button")
+  (createField "2" "2" "button")
+  (createField "3" "3" "button")
+  (createField "4" "4" "button")
+  (createField "5" "5" "button")
+  (createField "6" "6" "button")
+  [:p ] board)
 
 (defpage "/welcome" []
          (common/layout
-           [:p "Welcome to clojure"]
-         (testEen)
-         (testTwee)))
+           [:p "Welcome to clojure connect four"]
+           [:p "Player " "(logica/getPlayer)"]
+         (showScreen [[\- \- \- \- \- \-]
+                      [\- \- \- \- \- \-]
+                      [\- \- \- \- \- \-]
+                      [\- \- \- \- \- \-]
+                      [\- \- \- \- \- \-]
+                      [\- \- \- \- \- \-]])))
