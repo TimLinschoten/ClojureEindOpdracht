@@ -1,6 +1,6 @@
-(ns clojure.views.welcome
-  (:require [clojure.views.common :as common]
-            [clojure.models.logica :as logica]
+(ns clojureGame.views.welcome
+  (:require [clojureGame.views.common :as common]
+            [clojureGame.models.logica :as logica]
             [noir.content.getting-started])
   (:use noir.core))
 

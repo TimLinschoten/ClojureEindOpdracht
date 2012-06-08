@@ -1,4 +1,4 @@
-# clojure
+# clojureGame
 
 A website written in noir. 
 

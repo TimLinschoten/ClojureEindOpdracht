@@ -1,2 +1,2 @@
-cmdhistory=["*ns*" "(ns clojure.server)" "*ns*" "(main)" "(-main)" "*ns*" "(ns clojure.server)" "*ns*" "(ns clojure.server)" "(-main)"]
+cmdhistory=["*ns*" "(ns clojureGame.server)" "(-main)"]
 eclipse.preferences.version=1
