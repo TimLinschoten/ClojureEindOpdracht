@@ -1,7 +1,6 @@
 div#wrapper p {
 	font-size:15px;
 	font-family:Arial, Helvetica, sans-serif;
-	margin-bottom:20px;
 }
 
 div#wrapper input
@@ -10,6 +9,36 @@ div#wrapper input
 	height:50px;
 	border:1px solid #dedede;
 	background:#fff;
+	margin:1px;
+	color:#666;
+}
+
+div#wrapper playerX
+{
+	width:50px;
+	height:50px;
+	border:1px solid #dedede;
+	background:#4169e1;
+	margin:1px;
+	color:#666;
+}
+
+div#wrapper playerO
+{
+	width:50px;
+	height:50px;
+	border:1px solid #dedede;
+	background:#ff0000;
+	margin:1px;
+	color:#666;
+}
+
+div#wrapper button
+{
+	width:50px;
+	height:50px;
+	border:1px solid #dedede;
+	background:#808080;
 	margin:1px;
 	color:#666;
 }
@@ -23,22 +52,6 @@ div#wrapper
 {
 	color:#666;
 	position: absolute; 
-	top: 200px; 
-	left: 45%;"
-}
-
-div#wrapper a
-{
-	text-decoration:none;
-	font-family: Arial, helvetica, sans-serif;
-	color:#666;
-	text-indent:57px;
-	float:left;
-	margin-top:10px;
-	font-size:14px;
-}
-
-div#wrapper a:hover
-{
-	text-decoration:underline;
+	top: 20px; 
+	left: 40%;"
 }

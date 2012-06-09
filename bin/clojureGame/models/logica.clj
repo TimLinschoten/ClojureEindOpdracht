@@ -1,50 +1,56 @@
 (ns clojureGame.models.logica
   (:require [noir.session :as session]))
 
-(def empty-board [[\- \- \- \- \- \-]
+(def empty-board(atom [[\- \- \- \- \- \-]
                   [\- \- \- \- \- \-]
                   [\- \- \- \- \- \-]
                   [\- \- \- \- \- \-]
                   [\- \- \- \- \- \-]
-                  [\- \- \- \- \- \-]])
-
-(def init-state {:board empty-board :player \X})
-(def game-state (atom empty-board))
+                  [\- \- \- \- \- \-]]))
 
 (defn new-game! []
-  (session/put! :game-state @init-state))
-  ;(reset! game-state empty-board))
+  (session/clear!)
+  (session/put! :game-state empty-board)
+  (session/put! :player \X)
+  (session/put! :winner \-))
 
 (defn get-board []
-  ;(:board @game-state))
-  (:board (session/get :game-state)))
+  @(session/get :game-state))
+
+(defn set-board [board]
+  (session/put! :game-state board))
 
 (defn get-player []
-  ;(:player @game-state))
-  (:player (session/get :game-state)))  
-  
-(defn get-board-cell 
-  ([row column]
-    (get-board-cell (get-board) row column))
-  ([board row column]
-    (get-in board [row column])))
+  (session/get :player))
 
-(defn set-board-cell
-  ([row column]
-    (set-board-cell (get-board) row column))
-  ([board row column]
-    (update-in board [row column])))
-  
-(defn other-player []
-    (if (= (get-player) \X) \O \X))
+(defn next-player []
+  (if (= (session/get :player) \X)
+    (session/put! :player \O)
+    (session/put! :player \X)))
+
+(defn set-piece [rownr colnr]
+  (set-board (atom (assoc-in @(session/get :game-state) [rownr colnr] (get-player)))))
+
+(defn is-winner []
+  (if (= (session/get :winner) \-)
+    nil
+    (if (= (session/get :winner) \X)
+      \X
+      (if (= (session/get :winner) \O)
+        \O
+  ))))
 
 (defn free-row? 
   ([column] 
-    (free-row? get-board 0 column))
-  ([row column]
-    (free-row? get-board row column))
+    (free-row? (get-board) 5 column))
   ([board row column]
-    (if (= (get-in board [row column]) \-) row (free-row? (inc row) column))))
+    (if (= (get-in board [row column]) \-) row (if (> row 0)(free-row? board (dec row) column)nil))))
 
-(defn drop-in-column [column player]
-  (set-board-cell (free-row? column)))
+(defn drop-in-column [colnr]
+  (let [rownr (free-row? colnr)]
+    (if (=(= rownr nil) false)
+      (do 
+        (set-piece rownr colnr)
+        (next-player))
+  )))
+
