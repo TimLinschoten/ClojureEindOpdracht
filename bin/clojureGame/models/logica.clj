@@ -1,55 +1,54 @@
-(ns clojureGame.models.logica)
-  (:require [noir.session :as session])
+(ns clojureGame.models.logica
+  (:require [noir.session :as session]))
 
-(def empty-board [[\- \- \- \- \- \-]
-                  [\- \- \- \- \- \-]
-                  [\- \- \- \- \- \-]
-                  [\- \- \- \- \- \-]
-                  [\- \- \- \- \- \-]
-                  [\- \- \- \- \- \-]])
-
-(def init-state {:board empty-board :player \X})
+;(def empty-board [[\- \- \- \- \- \-]
+;                  [\- \- \- \- \- \-]
+;                  [\- \- \- \- \- \-]
+;                  [\- \- \- \- \- \-]
+;                  [\- \- \- \- \- \-]
+;                  [\- \- \- \- \- \-]])
+;
+;(def init-state {:board empty-board :player \X})
 
 #_(def ^{:private true} game-state (atom init-state))
-
-(defn reset-game! []
-  (session/put! :game-state init-state)
-  #_(reset! game-state init-state))
-
-(defn get-board []
-  #_(:board @game-state)
-  (:board (session/get :game-state)))
-
-(defn get-board-cell 
-  ([row col]
-    (get-board-cell (get-board) row col))
-  ([board row col]
-    (get-in board [row col])))
-
-(def set-board-cell
-  ([row col]
-    (set-board-cell (get-board) row col))
-  ([board row col]
-    (update-in board [row col]))
-  
-(defn get-player []
+;
+;(defn reset-game! []
+;  (session/put! :game-state init-state)
+;  #_(reset! game-state init-state))
+;
+;(defn get-board []
+;  #_(:board @game-state)
+;  (:board (session/get :game-state)))
+;
+;(defn get-board-cell 
+;  ([row col]
+;    (get-board-cell (get-board) row col))
+;  ([board row col]
+;    (get-in board [row col])))
+;
+;(defn set-board-cell
+;  ([row col]
+;    (set-board-cell (get-board) row col))
+;  ([board row col]
+;    (update-in board [row col])))
+;  
+;(defn get-player []
   #_(:player @game-state)
-  (:player (session/get :game-state)))
+;  (:player (session/get :game-state)))
+;
+;(defn other-player []
+;    (if (= (get-player) \X) \O \X))
 
-(defn other-player []
-    (if (= (get-player) \X) \O \X))
-
-(defn is-column-full? [column]
-  (if (= (get-board-cell(row column)) \-)
-    true)
-  false)
+;(defn is-column-full? [column]
+;  (if (= (get-board-cell(row column)) \-)
+;    true)
+;  false)
     
-(defn play! [column]
-  (if not= is-column-full?
-    (drop-in-column column get-player)))
-
-(defn drop-in-column [column] [player]
-  ())
+;(defn play! [column]
+;  (if not= is-column-full?
+;    (drop-in-column column get-player)))
+;
+;(defn drop-in-column [column] [player])
 
                       ;(defn play! [column]
 ;  (

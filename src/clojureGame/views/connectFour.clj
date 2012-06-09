@@ -4,10 +4,6 @@
             [noir.content.getting-started])
   (:use noir.core))
 
-(defpartial testTwee []
-  [:div 
-   [:p (logica/sum 1 2)]])
-
 (defpartial cell-html [rownum colnum cell] 
   [:td 
    [:input {:name (str "b" rownum colnum) 
