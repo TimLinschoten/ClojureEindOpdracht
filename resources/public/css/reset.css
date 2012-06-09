@@ -1,57 +1,44 @@
-html {
-	margin:0;
-	padding:0;
-	border:0;
+div#wrapper p {
+	font-size:15px;
+	font-family:Arial, Helvetica, sans-serif;
+	margin-bottom:20px;
 }
 
-body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, code,
-del, dfn, em, img, q, dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, dialog, figure, footer, header,
-hgroup, nav, section {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-weight: inherit;
-	font-style: inherit;
-	font-size: 100%;
-	font-family: inherit;
-	vertical-align: baseline;
+div#wrapper input
+{
+	width:50px;
+	height:50px;
+	border:1px solid #dedede;
+	background:#fff;
+	margin:1px;
+	color:#666;
 }
 
-article, aside, dialog, figure, footer, header,
-hgroup, nav, section {
-	display:block;
+div#wrapper input:hover
+{
+	cursor:pointer;
 }
 
-body {
-	line-height: 1.5;
-	background: white;
+div#wrapper
+{
+	color:#666;
+	position: absolute; 
+	top: 200px; 
+	left: 45%;"
 }
 
-table {
-	border-collapse: separate;
-	border-spacing: 0;
+div#wrapper a
+{
+	text-decoration:none;
+	font-family: Arial, helvetica, sans-serif;
+	color:#666;
+	text-indent:57px;
+	float:left;
+	margin-top:10px;
+	font-size:14px;
 }
 
-caption, th, td {
-	text-align: left;
-	font-weight: normal;
-	float:none !important;
+div#wrapper a:hover
+{
+	text-decoration:underline;
 }
-table, th, td {
-	vertical-align: middle;
-}
-
-blockquote:before, blockquote:after, q:before, q:after { content: ''; }
-blockquote, q { quotes: "" ""; }
-
-a img { border: none; }
-
-/*:focus { outline: 0; }*/
-
-
-
