@@ -13,26 +13,6 @@ div#wrapper input
 	color:#666;
 }
 
-div#wrapper playerX
-{
-	width:50px;
-	height:50px;
-	border:1px solid #dedede;
-	background:#4169e1;
-	margin:1px;
-	color:#666;
-}
-
-div#wrapper playerO
-{
-	width:50px;
-	height:50px;
-	border:1px solid #dedede;
-	background:#ff0000;
-	margin:1px;
-	color:#666;
-}
-
 div#wrapper button
 {
 	width:50px;

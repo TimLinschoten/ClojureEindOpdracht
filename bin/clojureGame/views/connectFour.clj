@@ -54,7 +54,7 @@
 
 (defpartial winnerScreen [winner]
   [:div
-   [:p "player" winner "has won"]
+   [:p "player " winner " has won"]
    (showScreen (logica/get-board))]
   )
 
@@ -66,8 +66,8 @@
 (defpage [:post "/"] {:as button-pressed}
   (let [button-id (name (first (keys button-pressed)))
         colnr (Integer/parseInt (str (nth button-id 1)))]
-    (logica/drop-in-column colnr)
-    (let [winner (logica/is-winner)]
-      (if (= winner nil)
+    (let [winner (logica/drop-in-column colnr)]
+      (if winner
+        (common/layout (winnerScreen winner))
         (common/layout (playScreen))
-        (common/layout (winnerScreen winner))))))
+       ))))
